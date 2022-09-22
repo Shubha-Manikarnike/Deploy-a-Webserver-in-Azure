@@ -1,0 +1,38 @@
+{
+	"variables": {
+		"client_id": "{{env `odl_user_208157@udacityhol.onmicrosoft.com`}}",
+		"client_secret": "{{env `yput09VCY*AO`}}",
+		"subscription_id": "{{env `UdacityDS - 69`}}",
+		"resource_group":"{{env `Azuredevops`}}"
+	},
+	"builders": [{
+		"type": "azure-arm",
+
+    	"client_id": "2c8a0dd2-1cf2-4b29-95d5-341b8d718b6f",
+    	"client_secret": "LJn8Q~DEtc3iPM3I4OLJ5kcAtk2tWw2eX7U9Sa5e",
+    	"subscription_id": "25fe1a94-31b3-432e-8734-e5b6f1d4deab",
+
+    	"os_type": "Linux",
+    	"image_publisher": "Canonical",
+    	"image_offer": "UbuntuServer",
+    	"image_sku": "16.04-LTS",
+		"azure_tags": {
+			"dept": "Engineering",
+			"task": "Image deployment"
+		},
+
+    	"managed_image_resource_group_name": "MyResourceGroups",
+    	"managed_image_name": "myPackerImage",
+
+    	"location": "East US",
+    	"vm_size": "Standard_DS2_v2"
+	}],
+	"provisioners": [{
+		"inline": [
+			"echo 'Hello, World!' > index.html",
+			"nohup busybox httpd -f -p 80 &"
+		],
+		"inline_shebang": "/bin/sh -x",
+		"type": "shell"
+	}]
+}
