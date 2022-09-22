@@ -32,6 +32,15 @@ This project contains a Packer template and a Terraform template to deploy a cus
 5. Modify variables in variables.tf to change number of VMs, location, resource group etc.
 6. Destroy the terraform infrastructure
 
+### Customizing variables.tf
+1. prefix : This will be prefixed to the name of every resource created. You can provide a meaningful name to be prefixed to your resource names
+2. resourcegroup: The resourcegroup in which the resources will be deployed
+3. location: location where your resources will be created
+4. username : username to login to Azure
+5. password : password to login to Azure
+6. packerImageId: ImageID of the packerimage created
+7. countofvm: Number of VMs you wish to create
+
 ### Output
 1. Login to Azure portal and verify the VM created with the corresponding security rules and load balancers.
 2. You can also verify the resources using terraform show
